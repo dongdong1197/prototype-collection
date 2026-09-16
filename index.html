@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Agent 催收系统 · 原型 v40</title>
+<title>AI Agent 催收系统 · 原型 v41</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -2408,7 +2408,7 @@ function openCaseDetail(){
         +   '<button class="op-btn primary" onclick="openFollowUpModal()">催记录入</button>'
         +   '<button class="op-btn primary" onclick="openRepayModal()">还款录入</button>'
         +   '<button class="op-btn" onclick="toast(\'打开承诺还款登记\')">承诺还款</button>'
-        +   '<button class="op-btn" onclick="toast(\'打开协商方案（超权限需主管审批）\')">协商方案</button>'
+        +   '<button class="op-btn" onclick="toast(\'打开协商方案\')">协商方案</button>'
         +   
         +   '<div class="divider"></div>'
         +   '<div class="op-group-title">快捷信息</div>'
@@ -2525,7 +2525,7 @@ var RP = {
         + '<div class="form-item"><div class="form-label">有效期<span class="req">*</span></div><input type="date" class="form-input"><div class="form-hint">PRD 830「有效期」</div></div>' },
   '协商账单':{ d:'按协商方案重新生成账单，含分期与减免（PRD 830：方案类型 / 分期数 / 减免金额 / 有效期 / 活码）。',
     extra:'<div class="form-item"><div class="form-label">分期数<span class="req">*</span></div><select class="form-select"><option>一次性结清</option><option selected>3 期</option><option>6 期</option><option>12 期</option></select></div>'
-        + '<div class="form-item"><div class="form-label">减免金额</div><input class="form-input" placeholder="0.00"><div class="form-hint">PRD 830「减免金额」，超权限需主管审批</div></div>'
+        + '<div class="form-item"><div class="form-label">减免金额</div><input class="form-input" placeholder="0.00"><div class="form-hint">PRD 830「减免金额」</div></div>'
         + '<div class="form-item"><div class="form-label">有效期<span class="req">*</span></div><input type="date" class="form-input"></div>'
         + '<div class="form-item"><div class="form-label">应收金额</div><input class="form-input" value="4120" readonly style="background:#f5f8fc;"></div>' }
 };
