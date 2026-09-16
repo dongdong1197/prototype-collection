@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Agent 催收系统 · 原型 v39</title>
+<title>AI Agent 催收系统 · 原型 v40</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -484,7 +484,7 @@ tbody tr:last-child td { border-bottom: none; }
         <span class="filter-label">案件池</span>
         <select class="search-select"><option>全部池</option><option>提醒池</option><option>催收池</option></select>
         <span class="filter-label">逾期阶段</span>
-        <select class="search-select"><option>全部阶段</option><option>M1（D1-7）</option><option>M2（D8-15）</option><option>M3（D16-30）</option><option>M4（D31-60）</option><option>M5+（D60+）</option></select>
+        <select class="search-select"><option>全部阶段</option><option>M1</option><option>M2</option><option>M3+</option></select>
         <span class="filter-label">渠道</span>
         <select class="search-select"><option>全部渠道</option><option>AI外呼</option><option>人工外呼</option><option>短信</option></select>
     </div>
@@ -634,20 +634,10 @@ tbody tr:last-child td { border-bottom: none; }
                     <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:56%;background:linear-gradient(90deg,#2f7ab8,#4f97cf);">586</div></div>
                     <div class="funnel-val">586 件</div><div class="funnel-pct">24.6%</div>
                 </div>
-                <div class="funnel-row" onclick="toast('下钻 M3 阶段案件')">
-                    <div class="funnel-name">M3 · D16-30</div>
-                    <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:40%;background:linear-gradient(90deg,#c9a227,#e0be4e);">419</div></div>
-                    <div class="funnel-val">419 件</div><div class="funnel-pct">17.6%</div>
-                </div>
-                <div class="funnel-row" onclick="toast('下钻 M4 阶段案件')">
-                    <div class="funnel-name">M4 · D31-60</div>
-                    <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:27%;background:linear-gradient(90deg,#b26a07,#d99435);">283</div></div>
-                    <div class="funnel-val">283 件</div><div class="funnel-pct">11.9%</div>
-                </div>
-                <div class="funnel-row" onclick="toast('下钻 M5+ 阶段案件（建议委外）')">
-                    <div class="funnel-name">M5+ · D60+</div>
-                    <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:22%;background:linear-gradient(90deg,#a02c22,#c0392b);">275</div></div>
-                    <div class="funnel-val">275 件</div><div class="funnel-pct">11.6%</div>
+                <div class="funnel-row" onclick="toast('下钻 M3+ 阶段案件')">
+                    <div class="funnel-name">M3+ · D16+</div>
+                    <div class="funnel-bar-wrap"><div class="funnel-bar" style="width:93%;background:linear-gradient(90deg,#a02c22,#c0392b);">977</div></div>
+                    <div class="funnel-val">977 件</div><div class="funnel-pct">41.1%</div>
                 </div>
             </div>
             <div class="chart-placeholder" style="margin-top:14px;height:96px;">趋势图悬浮节点：案件量 / 回收金额 / 触达量 / 回执成功率</div>
@@ -714,7 +704,7 @@ tbody tr:last-child td { border-bottom: none; }
             <input class="search-input" placeholder="订单号 / 用户姓名 / 手机号">
             <select class="search-select"><option>全部订单类型</option><option>全新</option><option>续租</option></select>
             <select class="search-select"><option>全部逾期类型</option><option>账单逾期</option><option>归还逾期</option></select>
-            <select class="search-select"><option>全部逾期阶段</option><option>M2（D8-15）</option><option>M3（D16-30）</option><option>M4（D31-60）</option><option>M5+（D60+）</option></select>
+            <select class="search-select"><option>全部逾期阶段</option><option>M1</option><option>M2</option><option>M3+</option></select>
             <select class="search-select"><option>全部跟进状态</option><option>待跟进</option><option>跟进中</option><option>已承诺</option><option>已结案</option></select>
             <select class="search-select"><option>全部归属</option><option>AI队列</option><option>人工坐席</option><option>委外机构</option><option>待分配</option></select>
             <select class="search-select"><option>全部C卡</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select>
@@ -830,7 +820,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td><span class="tag t-orange">18 天</span></td>
                             <td><span class="tag t-blue">跟进中</span></td>
                             <td>续租</td>
-                            <td><span class="tag t-red">M3·D18</span></td>
+                            <td><span class="tag t-red">M3+·D18</span></td>
                             <td>5/12期</td>
                             <td>¥21,500</td>
                             <td><span class="tag t-green">张明远</span></td>
@@ -857,7 +847,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td><span class="tag t-red">42 天</span></td>
                             <td><span class="tag t-green">已结案</span></td>
                             <td>全新</td>
-                            <td><span class="tag t-red">M4·D42</span></td>
+                            <td><span class="tag t-red">M3+·D42</span></td>
                             <td>归还逾期</td>
                             <td>¥7,860</td>
                             <td><span class="tag t-purple">委外·信达</span></td>
@@ -911,7 +901,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td><span class="tag t-red">73 天</span></td>
                             <td><span class="tag t-gray">待跟进</span></td>
                             <td>续租</td>
-                            <td><span class="tag t-red">M5+·D73</span></td>
+                            <td><span class="tag t-red">M3+·D73</span></td>
                             <td>7/12期</td>
                             <td>¥32,400</td>
                             <td><span class="tag t-gray">待分配</span></td>
@@ -1098,7 +1088,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td class="cell-strong">催收池-M3+实时入催</td>
                             <td><span class="tag t-blue">催收池</span></td>
                             <td><span class="tag t-purple">实时入催</span></td><td>实时</td>
-                            <td class="text-muted">逾期阶段∈[M3,M4,M5+] 且 司法状态=未司法</td>
+                            <td class="text-muted">逾期阶段∈[M3+] 且 司法状态=未司法</td>
                             <td class="text-muted">已结案/已结清/承诺未到期</td>
                             <td><span class="tag t-gold">5</span></td>
                             <td><span class="tag t-green">启用</span></td>
@@ -1139,10 +1129,10 @@ tbody tr:last-child td { border-bottom: none; }
                         </tr>
                         <tr>
                             <td class="mono">RULE_MKT_006</td>
-                            <td class="cell-strong">催收池-M2M3定时入催</td>
+                            <td class="cell-strong">催收池-M2M3+定时入催</td>
                             <td><span class="tag t-blue">催收池</span></td>
                             <td><span class="tag t-gray">定时入催</span></td><td>每小时</td>
-                            <td class="text-muted">订单类型∈[全新] 且 逾期阶段∈[M2,M3] 且 委外状态=未委外</td>
+                            <td class="text-muted">订单类型∈[全新] 且 逾期阶段∈[M2,M3+] 且 委外状态=未委外</td>
                             <td class="text-muted">已结案/已结清/承诺未到期</td>
                             <td><span class="tag t-gold">30</span></td>
                             <td><span class="tag t-red">停用</span></td>
@@ -1151,7 +1141,7 @@ tbody tr:last-child td { border-bottom: none; }
                     </tbody>
                 </table>
             </div>
-            <div class="text-muted" style="margin-top:10px;">规则名称 2-30 字且同一目标池内不可重复；优先级 1-99，数字越小越优先；新建默认停用，需手动启用。</div>
+            <div class="text-muted" style="margin-top:10px;">规则名称 2-30 字且同一目标池内不可重复；优先级 1-99，数字越小越优先；新建默认停用，需手动启用。逾期阶段取值同步营销系统配置，当前为 M1 / M2 / M3+。</div>
         </div>
     </div>
 
@@ -1384,7 +1374,7 @@ tbody tr:last-child td { border-bottom: none; }
                         <td  class="cell-strong">¥3,120</td>
                         <td><span class="tag t-orange">21 天</span></td>
                         <td><span class="tag t-gray">待认领</span></td>
-                        <td><span class="tag t-red">M3·D21</span></td>
+                        <td><span class="tag t-red">M3+·D21</span></td>
                         <td><span class="tag t-purple">AI外呼</span></td>
                         <td>AI外呼<div class="text-muted">09-13 15:48</div></td>
                         <td><span class="tag t-orange">未接通</span></td>
@@ -1424,7 +1414,7 @@ tbody tr:last-child td { border-bottom: none; }
                         <td  class="cell-strong">¥8,460</td>
                         <td><span class="tag t-red">38 天</span></td>
                         <td><span class="tag t-gray">待认领</span></td>
-                        <td><span class="tag t-red">M4·D38</span></td>
+                        <td><span class="tag t-red">M3+·D38</span></td>
                         <td><span class="tag t-gray">回调导入</span></td>
                         <td>人工外呼<div class="text-muted">09-13 11:05</div></td>
                         <td><span class="tag t-red">拒绝沟通</span></td>
@@ -1497,7 +1487,7 @@ tbody tr:last-child td { border-bottom: none; }
                         <tr>
                             <td><span class="tag t-blue">催收池</span></td>
                             <td class="cell-strong">M3+ 高金额 → 催收一组</td>
-                            <td class="text-muted">逾期类型=账单逾期 且 逾期阶段∈[M3,M4]</td>
+                            <td class="text-muted">逾期类型=账单逾期 且 逾期阶段∈[M3+]</td>
                             <td>指定坐席</td><td>王海涛</td>
                             <td><span class="tag t-gold">5</span></td>
                             <td><span class="tag t-green">启用</span></td>
@@ -1506,7 +1496,7 @@ tbody tr:last-child td { border-bottom: none; }
                         <tr>
                             <td><span class="tag t-blue">催收池</span></td>
                             <td class="cell-strong">投诉 / 减免中 → 固定坐席</td>
-                            <td class="text-muted">逾期类型=账单逾期 且 逾期阶段∈[M2,M3]</td>
+                            <td class="text-muted">逾期类型=账单逾期 且 逾期阶段∈[M2,M3+]</td>
                             <td>指定坐席</td><td>张明远</td>
                             <td><span class="tag t-gold">1</span></td>
                             <td><span class="tag t-green">启用</span></td>
@@ -1514,8 +1504,8 @@ tbody tr:last-child td { border-bottom: none; }
                         </tr>
                         <tr>
                             <td><span class="tag t-blue">催收池</span></td>
-                            <td class="cell-strong">M5+ 失联 → 固定坐席</td>
-                            <td class="text-muted">逾期类型=归还逾期 且 逾期阶段=M5+</td>
+                            <td class="cell-strong">M3+ 失联 → 固定坐席</td>
+                            <td class="text-muted">逾期类型=归还逾期 且 逾期阶段=M3+</td>
                             <td>指定坐席</td><td>王海涛</td>
                             <td><span class="tag t-gold">8</span></td>
                             <td><span class="tag t-green">启用</span></td>
@@ -1591,7 +1581,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td class="cell-strong">归属回收-7日未跟进</td>
                             <td><span class="tag t-purple">归属回收</span></td>
                             <td>分单 7 日未跟进</td>
-                            <td class="text-muted">催收池 · 全新/续租 · M2,M3</td>
+                            <td class="text-muted">催收池 · 全新/续租 · M2,M3+</td>
                             <td>回到原池重新分单</td>
                             <td><span class="tag t-green">启用</span></td>
                             <td><button class="btn-text" onclick="openWithdrawModal('归属回收')">编辑</button><button class="btn-text" onclick="toast('已复制为新规则（默认停用）')">复制</button><button class="btn-text" onclick="toast('已停用：归属回收-7日未跟进')">停用</button></td>
@@ -1601,20 +1591,20 @@ tbody tr:last-child td { border-bottom: none; }
                             <td class="cell-strong">归属回收-15日未回款</td>
                             <td><span class="tag t-purple">归属回收</span></td>
                             <td>分单 15 日未回款</td>
-                            <td class="text-muted">催收池 · 不限制 · M4,M5+</td>
+                            <td class="text-muted">催收池 · 不限制 · M3+</td>
                             <td>进入指定池（高逾期池）</td>
                             <td><span class="tag t-green">启用</span></td>
                             <td><button class="btn-text" onclick="openWithdrawModal('归属回收')">编辑</button><button class="btn-text" onclick="toast('已复制为新规则（默认停用）')">复制</button><button class="btn-text" onclick="toast('已停用：归属回收-15日未回款')">停用</button></td>
                         </tr>
                         <tr>
                             <td><span class="tag t-gold">40</span></td>
-                            <td class="cell-strong">固定回收-每月15日M4+</td>
+                            <td class="cell-strong">固定回收-每月15日M3+</td>
                             <td><span class="tag t-blue">固定回收</span></td>
                             <td>每月 15 日 03:00</td>
-                            <td class="text-muted">催收池 · 续租 · M4,M5+</td>
+                            <td class="text-muted">催收池 · 续租 · M3+</td>
                             <td>回到原池重新分单</td>
                             <td><span class="tag t-gray">停用</span></td>
-                            <td><button class="btn-text" onclick="openWithdrawModal('固定回收')">编辑</button><button class="btn-text" onclick="toast('已复制为新规则（默认停用）')">复制</button><button class="btn-text" onclick="toast('已启用：固定回收-每月15日M4+')">启用</button></td>
+                            <td><button class="btn-text" onclick="openWithdrawModal('固定回收')">编辑</button><button class="btn-text" onclick="toast('已复制为新规则（默认停用）')">复制</button><button class="btn-text" onclick="toast('已启用：固定回收-每月15日M3+')">启用</button></td>
                         </tr>
                         <tr>
                             <td><span class="tag t-gold">50</span></td>
@@ -1834,7 +1824,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td><span class="tag t-red">42 天</span></td>
                             <td><span class="tag t-blue">跟进中</span></td>
                             <td><span class="tag t-blue">催收池</span></td>
-                            <td>策略分配 · M4 及以上</td>
+                            <td>策略分配 · M3+</td>
                             <td>催收池</td>
                             <td>信达催收</td>
                             <td><span class="tag t-green">分配成功</span></td>
@@ -1936,7 +1926,7 @@ tbody tr:last-child td { border-bottom: none; }
         <select class="search-select"><option>全部订单状态</option><option>租用中</option><option>已逾期</option><option>待归还</option></select>
         <select class="search-select"><option>全部处理结果</option><option>承诺还款</option><option>协商中</option></select>
         <select class="search-select"><option>全部订单标记</option><option>司法订单</option><option>投诉倾向</option><option>多头共租</option></select>
-        <select class="search-select"><option>全部逾期阶段</option><option>M1</option><option>M2</option><option>M3</option><option>M4</option><option>M5+</option></select>
+        <select class="search-select"><option>全部逾期阶段</option><option>M1</option><option>M2</option><option>M3+</option></select>
         <select class="search-select"><option>全部C卡</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select>
         <button class="btn btn-sm">清空</button>
     </div>
@@ -1988,7 +1978,7 @@ tbody tr:last-child td { border-bottom: none; }
                         <td><span class="tag t-orange">18 天</span></td>
                         <td><span class="tag t-blue">跟进中</span></td>
                         <td>续租</td>
-                        <td><span class="tag t-red">M3·D18</span></td>
+                        <td><span class="tag t-red">M3+·D18</span></td>
                         <td>5/12期</td>
                         <td>¥21,500</td>
                         <td><span class="tag t-green">张明远</span></td>
@@ -2042,7 +2032,7 @@ tbody tr:last-child td { border-bottom: none; }
                         <td><span class="tag t-red">73 天</span></td>
                         <td><span class="tag t-gray">待跟进</span></td>
                         <td>续租</td>
-                        <td><span class="tag t-red">M5+·D73</span></td>
+                        <td><span class="tag t-red">M3+·D73</span></td>
                         <td>7/12期</td>
                         <td>¥32,400</td>
                         <td><span class="tag t-green">张明远</span></td>
@@ -2098,7 +2088,7 @@ tbody tr:last-child td { border-bottom: none; }
     <div class="filter-bar">
         <select class="search-select"><option>全部能力类型</option><option>AI外呼</option><option>短信</option></select>
         <select class="search-select"><option>全部任务状态</option><option>待下发</option><option>处理中</option><option>已完成</option><option>失败</option><option>异常</option></select>
-        <select class="search-select"><option>全部逾期阶段</option><option>M1</option><option>M2</option><option>M3</option><option>M4</option><option>M5+</option></select>
+        <select class="search-select"><option>全部逾期阶段</option><option>M1</option><option>M2</option><option>M3+</option></select>
         <select class="search-select"><option>全部意向标签</option><option>承诺还款</option><option>协商</option><option>拒绝</option><option>失联</option><option>投诉风险</option></select>
         <input class="search-input" placeholder="任务ID / 订单号 / 手机号">
         <button class="btn btn-sm">重置</button>
@@ -2202,13 +2192,13 @@ tbody tr:last-child td { border-bottom: none; }
                         <th colspan="3" style="text-align:center;border-left:1px solid #edf1f6;">已处理</th>
                         <th colspan="2" style="text-align:center;border-left:1px solid #edf1f6;">处理方式</th>
                         <th>通话时长</th><th>待回款</th><th>已回款</th>
-                        <th>M1</th><th>M2</th><th>M3</th><th>M4+</th><th>操作</th>
+                        <th>M1</th><th>M2</th><th>M3+</th><th>操作</th>
                     </tr>
                     <tr style="background:#fbfcfe;">
                         <th></th><th></th><th></th><th></th><th></th>
                         <th style="font-weight:500;color:#8494a8;">转续租</th><th style="font-weight:500;color:#8494a8;">转买断</th><th style="font-weight:500;color:#8494a8;">租用中</th>
                         <th style="font-weight:500;color:#8494a8;border-left:1px solid #edf1f6;">人工</th><th style="font-weight:500;color:#8494a8;">机器</th>
-                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th>
+                        <th></th><th></th><th></th><th></th><th></th><th></th><th></th>
                     </tr></thead>
                     <tbody>
                         <tr onclick="openAgentDetail('张明远')" style="cursor:pointer;">
@@ -2218,7 +2208,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td>3</td><td>2</td><td>16</td>
                             <td style="border-left:1px solid #f2f5f9;">21</td><td>11</td>
                             <td>2h 18m</td><td>¥18.6万</td><td>¥4.2万</td>
-                            <td>12</td><td>9</td><td>7</td><td>4</td>
+                            <td>12</td><td>9</td><td>11</td>
                             <td><button class="btn-text" onclick="event.stopPropagation();openAgentDetail('张明远')">详情</button></td>
                         </tr>
                         <tr onclick="openAgentDetail('李静')" style="cursor:pointer;">
@@ -2228,7 +2218,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td>5</td><td>4</td><td>18</td>
                             <td style="border-left:1px solid #f2f5f9;">27</td><td>9</td>
                             <td>3h 02m</td><td>¥16.4万</td><td>¥5.8万</td>
-                            <td>10</td><td>11</td><td>5</td><td>2</td>
+                            <td>10</td><td>11</td><td>7</td>
                             <td><button class="btn-text" onclick="event.stopPropagation();openAgentDetail('李静')">详情</button></td>
                         </tr>
                         <tr onclick="openAgentDetail('王海涛')" style="cursor:pointer;">
@@ -2238,7 +2228,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td>2</td><td>6</td><td>24</td>
                             <td style="border-left:1px solid #f2f5f9;">32</td><td>14</td>
                             <td>3h 46m</td><td>¥24.8万</td><td>¥6.1万</td>
-                        <td>8</td><td>14</td><td>12</td><td>6</td>
+                        <td>8</td><td>14</td><td>18</td>
                             <td><button class="btn-text" onclick="event.stopPropagation();openAgentDetail('王海涛')">详情</button></td>
                         </tr>
                         <tr onclick="openAgentDetail('陈晓雯')" style="cursor:pointer;">
@@ -2248,7 +2238,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td>1</td><td>1</td><td>7</td>
                             <td style="border-left:1px solid #f2f5f9;">9</td><td>3</td>
                             <td>1h 12m</td><td>¥7.2万</td><td>¥1.4万</td>
-                            <td>6</td><td>4</td><td>2</td><td>0</td>
+                            <td>6</td><td>4</td><td>2</td>
                             <td><button class="btn-text" onclick="event.stopPropagation();openAgentDetail('陈晓雯')">详情</button></td>
                         </tr>
                         <tr onclick="openAgentDetail('刘志强')" style="cursor:pointer;">
@@ -2258,7 +2248,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td>0</td><td>3</td><td>9</td>
                             <td style="border-left:1px solid #f2f5f9;">14</td><td>6</td>
                             <td>1h 38m</td><td>¥11.5万</td><td>¥2.9万</td>
-                            <td>2</td><td>5</td><td>7</td><td>5</td>
+                            <td>2</td><td>5</td><td>12</td>
                             <td><button class="btn-text" onclick="event.stopPropagation();openAgentDetail('刘志强')">详情</button></td>
                         </tr>
                     </tbody>
@@ -2268,7 +2258,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td>11</td><td>16</td><td>74</td>
                             <td style="border-left:1px solid #edf1f6;">103</td><td>43</td>
                             <td>11h 56m</td><td>¥78.5万</td><td>¥20.4万</td>
-                            <td>38</td><td>43</td><td>33</td><td>17</td><td>—</td>
+                            <td>38</td><td>43</td><td>50</td><td>—</td>
                         </tr>
                     </tfoot>
                 </table>
@@ -2344,7 +2334,7 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeMo
 function openCaseDetail(){
     var html = '<div class="modal-header"><div class="modal-title">案件详情 · CS20260913087</div>'
         + '<div style="display:flex;gap:8px;align-items:center;">'
-        + '<span class="tag t-red">M3·D18</span><span class="tag t-blue">跟进中</span><span class="tag t-orange">C卡 D</span>'
+        + '<span class="tag t-red">M3+·D18</span><span class="tag t-blue">跟进中</span><span class="tag t-orange">C卡 D</span>'
         + '<span class="modal-close" onclick="closeModal()">&times;</span></div></div>'
         + '<div class="modal-body" style="padding:0;">'
         + '<div class="detail-layout">'
@@ -2372,7 +2362,7 @@ function openCaseDetail(){
         +     '<div class="info-item"><div class="k">履约保证金</div><div class="v">¥1,290</div></div>'
         +     '<div class="info-item"><div class="k">订单标记</div><div class="v"><span class="tag t-blue">司法标记</span></div></div>'
         +     '<div class="info-item"><div class="k">C卡</div><div class="v"><span class="tag t-orange">D</span></div></div>'
-        +     '<div class="info-item"><div class="k">逾期阶段</div><div class="v"><span class="tag t-red">M3</span></div></div>'
+        +     '<div class="info-item"><div class="k">逾期阶段</div><div class="v"><span class="tag t-red">M3+</span></div></div>'
         +     '<div class="info-item"><div class="k">逾期天数</div><div class="v text-strong" style="color:#c0392b;">18 天</div></div>'
         +   '</div></div>'
         +   '<div class="info-block"><div class="info-block-title">账务补充</div><div class="info-grid">'
@@ -2400,7 +2390,7 @@ function openCaseDetail(){
         +       '<div class="tl-item ai"><div class="tl-time">09-13 16:40 · AI外呼回执</div><div class="tl-title">AI 外呼完成 · 意向：协商</div><div class="tl-desc">通话 86 秒，客户要求减免违约金。ASR 已转写，录音可播放。<span class="link" onclick="toast(\'播放录音\')">播放录音</span> · <span class="link" onclick="toast(\'查看完整 ASR 转写\')">查看转写</span></div></div>'
         +       '<div class="tl-item"><div class="tl-time">09-13 15:12 · 短信</div><div class="tl-title">逾期提醒短信已送达</div><div class="tl-desc">模板 SMS_M3_005，客户已点击短链。</div></div>'
         +       '<div class="tl-item"><div class="tl-time">09-12 10:05 · 催记</div><div class="tl-title">人工催记 · 承诺还款</div><div class="tl-desc">客户承诺 09-18 还款 ¥1,500；情绪：愤怒；困难原因：资金不足。</div></div>'
-        +       '<div class="tl-item warn"><div class="tl-time">09-10 09:30 · 系统</div><div class="tl-title">升级至 M3 阶段</div><div class="tl-desc">逾期超 16 天，触发策略 Agent 重评估，分单至人工坐席张明远。</div></div>'
+        +       '<div class="tl-item warn"><div class="tl-time">09-10 09:30 · 系统</div><div class="tl-title">升级至 M3+ 阶段</div><div class="tl-desc">逾期超 16 天，触发策略 Agent 重评估，分单至人工坐席张明远。</div></div>'
         +       '<div class="tl-item"><div class="tl-time">09-05 08:00 · 系统</div><div class="tl-title">案件入催收池</div><div class="tl-desc">命中规则：催收池-M2定时入催。</div></div>'
         +     '</div></div>'
         + '</div>'
@@ -2469,7 +2459,7 @@ function openFollowUpModal(){
   var terms = ['1期','2期','3期','4期','5期','6期','7期','8期','9期','10期','11期','12期','归还'];
   var html = '<div class="modal-header"><div class="modal-title">催记录入 · CS20260913087'
     + '<div style="font-weight:400;color:#93a3b8;font-size:11.5px;margin-top:4px;">字段依据 XMIND「催收工作台 &gt; 操作 &gt; 处理 &gt; 催记」</div></div>'
-    + '<div style="display:flex;gap:8px;align-items:center;"><span class="tag t-red">M3·D18</span>'
+    + '<div style="display:flex;gap:8px;align-items:center;"><span class="tag t-red">M3+·D18</span>'
     + '<span class="modal-close" onclick="closeModal()">&times;</span></div></div>'
     + '<div class="modal-body"><div class="modal-split">'
     /* --- 左：表单 --- */
@@ -2617,7 +2607,7 @@ var SPEC = {
  '回收判定项':{type:'select',opts:['跟进','回款'],dft:'跟进',req:true,note:'未跟进 = 无有效跟进记录；未回款 = 无回款流水'},
  '适用池':{type:'checkbox-group',opts:['催收池','提醒池','触达公海'],dft:'',req:false,note:'不勾选 = 不限制'},
  '适用订单类型':{type:'checkbox-group',opts:['全新','续租'],dft:'',req:false,note:'不勾选 = 不限制'},
- '适用逾期阶段':{type:'checkbox-group',opts:['M1','M2','M3','M4','M5+'],dft:'',req:false,note:'不勾选 = 不限制'},
+ '适用逾期阶段':{type:'checkbox-group',opts:['M1','M2','M3+'],dft:'',req:false,note:'不勾选 = 不限制'},
  '排除条件':{type:'checkbox-group',opts:['已结案','已结清','承诺未到期'],dft:'已结案|已结清|承诺未到期',req:false,note:'默认全部勾选；命中但属于排除条件的案件不触发撤回'},
  '回收后动作':{type:'select',opts:['回到原池重新分单','进入指定池','保留归属仅提醒'],dft:'回到原池重新分单',req:true,note:'选择「进入指定池」时需同时指定目标池'},
  '优先级':{type:'number',opts:[],dft:'10',req:true,note:'1-99，数字越小越优先；同一案件命中多条时只执行优先级最高的一条'},
@@ -2626,6 +2616,7 @@ var SPEC = {
  }};
 /* 条件字段字典（命中条件 / 回收条件） */
 /* 全部取值来源：PRD 字段字典 778-787 行 + 各弹窗字段表 939 / 969 / 1018 行 */
+/* 逾期阶段取值同步营销系统配置，当前仅 M1 / M2 / M3+（2026-09-16 用户口径） */
 var DICT = {
  condOps:['等于','不等于','属于','包含','大于等于','小于等于'],
  groups:{
@@ -2633,7 +2624,7 @@ var DICT = {
   cond:{label:'入催命中条件', fields:[
    {name:'订单类型',type:'enum',opts:['全新','续租']},
    {name:'逾期类型',type:'enum',opts:['账单逾期','归还逾期']},
-   {name:'逾期阶段',type:'enum',opts:['M1','M2','M3','M4','M5+']},
+   {name:'逾期阶段',type:'enum',opts:['M1','M2','M3+'],note:'取值同步营销系统配置'},
       {name:'委外状态',type:'enum',opts:['未委外','委外中']},
    {name:'司法状态',type:'enum',opts:['未司法','司法中']}
   ]},
@@ -2641,7 +2632,7 @@ var DICT = {
   as:{label:'分单条件', fields:[
    {name:'订单类型',type:'enum',opts:['全新','续租']},
    {name:'逾期类型',type:'enum',opts:['账单逾期','归还逾期']},
-   {name:'逾期阶段',type:'enum',opts:['M1','M2','M3','M4','M5+']},
+   {name:'逾期阶段',type:'enum',opts:['M1','M2','M3+'],note:'取值同步营销系统配置'},
    {name:'账期范围',type:'msel',opts:['2期','3期','4期','5期','6期','7期','8期','9期','10期','11期','12期'],unit:'期'}
   ]}
  }
@@ -2772,6 +2763,7 @@ function dictNotes(dk, extra){
     return dFields(dk).map(function(f){
         var v = f.type === 'number' ? ('数值，单位 ' + (f.unit || ''))
               : (f.opts || []).join('、') + (f.type === 'msel' ? '（下拉多选）' : '');
+        if(f.note) v += ' · ' + f.note;
         return '<div class="sn-li sn-sub">' + f.name + '：' + v + '</div>';
     }).join('') + (extra || '');
 }
@@ -3074,7 +3066,7 @@ function openReceiptModal(){
 /* ============ 坐席处理情况统计（订单维度） ============ */
 var AGDATA = {
 '张明远':{no:'AG001',grp:'催收一组',st:'在线',stc:'t-green',load:'32 / 40',done:'18',replied:64,amt:'¥24.6万',pend:'¥42.8万',follow:'78.5%',conn:'63.2%',dur:'6m 12s',
- stage:[['M1',42,'¥8.6万'],['M2',58,'¥12.4万'],['M3',46,'¥10.2万'],['M4',28,'¥7.8万'],['M5+',12,'¥3.8万']],
+ stage:[['M1',42,'¥8.6万'],['M2',58,'¥12.4万'],['M3+',86,'¥21.8万']],
  follow:[['已承诺',46],['跟进中',72],['协商中',30],['待跟进',26],['失联',12]],
  type:[['全新',58],['续租',42]],
  orders:[
@@ -3083,7 +3075,7 @@ var AGDATA = {
  ['CS20260908145','孙**','186****2210','iPad Pro 11','已结清','账单逾期','¥2,600',42,'已承诺','09-12 09:30','已回款','¥2,600']
  ]},
 '李静':{no:'AG002',grp:'催收一组',st:'通话中',stc:'t-blue',load:'28 / 40',done:'22',replied:54,amt:'¥21.3万',pend:'¥35.6万',follow:'81.2%',conn:'66.4%',dur:'5m 48s',
- stage:[['M1',38,'¥7.2万'],['M2',46,'¥10.8万'],['M3',34,'¥8.4万'],['M4',24,'¥6.2万'],['M5+',10,'¥3.0万']],
+ stage:[['M1',38,'¥7.2万'],['M2',46,'¥10.8万'],['M3+',68,'¥17.6万']],
  follow:[['已承诺',40],['跟进中',58],['协商中',24],['待跟进',22],['失联',8]],
  type:[['全新',48],['续租',34]],
  orders:[
@@ -3092,7 +3084,7 @@ var AGDATA = {
  ['CS20260905331','郑**','133****6625','MacBook Pro 14','已结清','归还逾期','¥3,200',35,'已承诺','09-10 10:05','已回款','¥3,200']
  ]},
 '王海涛':{no:'AG003',grp:'催收二组',st:'在线',stc:'t-green',load:'40 / 40',done:'26',replied:72,amt:'¥28.4万',pend:'¥51.2万',follow:'74.6%',conn:'59.8%',dur:'7m 06s',
- stage:[['M1',46,'¥9.2万'],['M2',64,'¥14.6万'],['M3',54,'¥12.8万'],['M4',34,'¥8.9万'],['M5+',16,'¥4.7万']],
+ stage:[['M1',46,'¥9.2万'],['M2',64,'¥14.6万'],['M3+',104,'¥26.4万']],
  follow:[['已承诺',52],['跟进中',84],['协商中',34],['待跟进',30],['失联',14]],
  type:[['全新',66],['续租',48]],
  orders:[
@@ -3101,7 +3093,7 @@ var AGDATA = {
  ['CS20260906018','楚**','159****1102','华为 Mate 60','已结清','账单逾期','¥1,500',30,'已承诺','09-10 09:12','已回款','¥1,500']
  ]},
 '陈晓雯':{no:'AG004',grp:'催收二组',st:'离线',stc:'t-gray',load:'12 / 40',done:'9',replied:32,amt:'¥9.8万',pend:'¥18.4万',follow:'69.8%',conn:'55.2%',dur:'8m 24s',
- stage:[['M1',26,'¥4.8万'],['M2',30,'¥6.4万'],['M3',22,'¥5.1万'],['M4',12,'¥3.4万'],['M5+',6,'¥1.7万']],
+ stage:[['M1',26,'¥4.8万'],['M2',30,'¥6.4万'],['M3+',40,'¥10.2万']],
  follow:[['已承诺',24],['跟进中',36],['协商中',16],['待跟进',14],['失联',6]],
  type:[['全新',30],['续租',22]],
  orders:[
@@ -3110,7 +3102,7 @@ var AGDATA = {
  ['CS20260904092','沈**','135****9987','AirPods Pro 2','已结清','账单逾期','¥680',28,'已承诺','09-09 11:20','已回款','¥680']
  ]},
 '刘志强':{no:'AG005',grp:'委外管理组',st:'在线',stc:'t-green',load:'19 / 40',done:'14',replied:41,amt:'¥15.2万',pend:'¥26.8万',follow:'71.4%',conn:'57.6%',dur:'7m 42s',
- stage:[['M1',30,'¥5.6万'],['M2',38,'¥8.2万'],['M3',32,'¥7.4万'],['M4',18,'¥4.6万'],['M5+',10,'¥2.8万']],
+ stage:[['M1',30,'¥5.6万'],['M2',38,'¥8.2万'],['M3+',60,'¥14.8万']],
  follow:[['已承诺',34],['跟进中',50],['协商中',20],['待跟进',16],['失联',8]],
  type:[['全新',40],['续租',28]],
  orders:[
@@ -3163,7 +3155,7 @@ function openAgentDetail(name){
         +   '<div class="filter-bar" style="padding:0 0 12px;">'
         +     '<select class="search-select"><option>本月</option><option>本周</option><option>今日</option><option>自定义</option></select>'
         +     '<select class="search-select"><option>全部池</option><option>提醒池</option><option>催收池</option></select>'
-        +     '<select class="search-select"><option>全部逾期阶段</option><option>M1</option><option>M2</option><option>M3</option><option>M4</option><option>M5+</option></select>'
+        +     '<select class="search-select"><option>全部逾期阶段</option><option>M1</option><option>M2</option><option>M3+</option></select>'
         +     '<button class="btn btn-sm">重置</button>'
         +   '</div>'
         +   '<div class="stat-grid g4">'
@@ -3268,6 +3260,5 @@ function openWithdrawLogDetail(id){
     openModal(html, '1280px');
 }
 </script>
-
 </body>
 </html>
