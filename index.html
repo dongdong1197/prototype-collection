@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Agent 催收系统 · 原型 v42</title>
+<title>AI Agent 催收系统 · 原型 v43</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -371,7 +371,7 @@ tbody tr:last-child td { border-bottom: none; }
 .funnel-pct { width: 54px; font-size: 12px; color: #94a3b8; flex-shrink: 0; }
 
 /* ============ 分布卡 ============ */
-.dist-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 16px; }
+.dist-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 16px; }
 .dist-card { background: #fff; border: 1px solid #e6ebf2; border-radius: 11px; padding: 14px 16px; }
 .dist-title { font-size: 13px; font-weight: 700; margin-bottom: 12px; color: #152238; }
 .dist-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; cursor: pointer; }
@@ -466,11 +466,7 @@ tbody tr:last-child td { border-bottom: none; }
     <div class="page-header">
         <div>
             <div class="page-title">数据驾驶舱</div>
-            <div class="page-subtitle">催收业务经营、触达执行、AI 与人工效率总览 · 数据更新时间：2026-09-14 16:40</div>
-        </div>
-        <div style="display:flex;gap:8px;">
-            <button class="btn" onclick="toast('按当前筛选条件导出报表，操作已写入审计日志')">导出报表</button>
-            <button class="btn btn-primary" onclick="toast('已刷新至最新数据')">刷新数据</button>
+            <div class="page-subtitle">催收业务经营、触达执行、AI 与人工效率总览</div>
         </div>
     </div>
 
@@ -556,7 +552,7 @@ tbody tr:last-child td { border-bottom: none; }
             <div class="card-header"><div class="card-title">坐席指标</div><div class="card-sub">仅统计人工坐席动作，不含 AI 自动触达</div></div>
             <div class="stat-grid g3">
                 <div class="stat-card"><div class="stat-label">在线坐席</div><div class="stat-value" style="font-size:19px;">28<span style="font-size:13px;color:#94a3b8;">/35</span></div><div class="stat-foot">通话中 9 · 离线 7</div></div>
-                <div class="stat-card"><div class="stat-label">平均负载</div><div class="stat-value" style="font-size:19px;">31<span style="font-size:13px;color:#94a3b8;">件/人</span></div><div class="stat-foot">满载阈值 40</div></div>
+                <div class="stat-card"><div class="stat-label">平均负载</div><div class="stat-value" style="font-size:19px;">31<span style="font-size:13px;color:#94a3b8;">件/人</span></div><div class="stat-foot">人工坐席在催均值</div></div>
                 <div class="stat-card"><div class="stat-label">今日完成</div><div class="stat-value" style="font-size:19px;">342</div><div class="stat-foot">人均 12.2 件</div></div>
                 <div class="stat-card"><div class="stat-label">催记提交量</div><div class="stat-value" style="font-size:19px;">861</div><div class="stat-foot">人均 30.8 条</div></div>
                 <div class="stat-card"><div class="stat-label">承诺跟进完成率</div><div class="stat-value" style="font-size:19px;">88.4%</div><div class="stat-foot">到期已跟进/到期应跟进</div></div>
@@ -686,11 +682,6 @@ tbody tr:last-child td { border-bottom: none; }
             <div class="page-title">案件池</div>
             <div class="page-subtitle">提醒池（M1·D1-7）与催收池（M2及以上·D8+）统一管理 · 两池字段口径一致，默认筛选不同</div>
         </div>
-        <div style="display:flex;gap:8px;">
-            <button class="btn" onclick="toast('打开导入模板下载与文件校验')">手动导入</button>
-            <button class="btn" onclick="toast('已选择 0 条，请先勾选案件')">批量分配</button>
-            <button class="btn btn-primary" onclick="toast('导出当前筛选条件下的案件')">导出</button>
-        </div>
     </div>
 
     <div class="tabs">
@@ -709,19 +700,10 @@ tbody tr:last-child td { border-bottom: none; }
             <select class="search-select"><option>全部归属</option><option>AI队列</option><option>人工坐席</option><option>委外机构</option><option>待分配</option></select>
             <select class="search-select"><option>全部C卡</option><option>A</option><option>B</option><option>C</option><option>D</option><option>E</option></select>
             <button class="btn btn-sm">重置</button>
-            <div class="spacer"></div>
-            <button class="btn btn-sm" onclick="toast('打开自定义列设置：21 列可配置显示/隐藏')">自定义列</button>
         </div>
 
-        <!-- 四张分布卡 -->
+        <!-- 三张分布卡 -->
         <div class="dist-grid">
-            <div class="dist-card">
-                <div class="dist-title">订单状态分布</div>
-                <div class="dist-row" onclick="toast('列表已带入筛选：租用中')"><span class="dist-name">租用中</span><span class="dist-bar-bg"><span class="dist-bar" style="width:62%;background:#2f7ab8;"></span></span><span class="dist-num">1,151</span></div>
-                <div class="dist-row" onclick="toast('列表已带入筛选：已逾期')"><span class="dist-name">已逾期</span><span class="dist-bar-bg"><span class="dist-bar" style="width:24%;background:#c0392b;"></span></span><span class="dist-num">446</span></div>
-                <div class="dist-row" onclick="toast('列表已带入筛选：待归还')"><span class="dist-name">待归还</span><span class="dist-bar-bg"><span class="dist-bar" style="width:9%;background:#c9a227;"></span></span><span class="dist-num">167</span></div>
-                <div class="dist-row" onclick="toast('列表已带入筛选：已买断')"><span class="dist-name">已买断</span><span class="dist-bar-bg"><span class="dist-bar" style="width:5%;background:#1e8b56;"></span></span><span class="dist-num">92</span></div>
-            </div>
             <div class="dist-card">
                 <div class="dist-title">跟进状态分布</div>
                 <div class="dist-row" onclick="toast('列表已带入筛选：待跟进')"><span class="dist-name">待跟进</span><span class="dist-bar-bg"><span class="dist-bar" style="width:38%;background:#94a3b8;"></span></span><span class="dist-num">706</span></div>
@@ -748,7 +730,7 @@ tbody tr:last-child td { border-bottom: none; }
 
         <div class="card">
             <div class="card-header">
-                <div class="card-title">催收池任务队列<span class="card-sub" style="margin-left:8px;">共 1,856 件 · 完整展示 24 列，支持排序与自定义列</span></div>
+                <div class="card-title">催收池任务队列<span class="card-sub" style="margin-left:8px;">共 1,856 件 · 完整展示 24 列，支持排序</span></div>
                 <div class="card-tools"><span class="text-muted">统计口径：订单总量 / 成功触达 1,378 / 触达率 74.2% / 响应订单 529 / 响应率 28.5%</span></div>
             </div>
             <div class="table-wrap">
@@ -1243,7 +1225,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td>固定回收 · 每月1日</td>
                             <td><span class="tag t-gold">撤回</span></td>
                             <td><span class="tag t-green">入催</span></td>
-                            <td  class="text-muted">撤回池内并重新进入分单引擎</td>
+                            <td  class="text-muted">已撤回，按回收后动作重新分配</td>
                         </tr>
                         <tr>
                             <td  class="mono">09-14 09:00:08</td>
@@ -1290,24 +1272,24 @@ tbody tr:last-child td { border-bottom: none; }
     <div class="page-header">
         <div>
             <div class="page-title">触达公海</div>
-            <div class="page-subtitle">承接营销触达后未匹配坐席或未被及时接手的线索 · 支持认领与分单</div>
+            <div class="page-subtitle">承接营销触达后未匹配坐席、未被及时接手的线索，以及催收池分单未分配到坐席的案件 · 支持认领与分单</div>
         </div>
         <div style="display:flex;gap:8px;">
-            <button class="btn" onclick="toast('正在拉取营销系统未处理回执线索…')">同步营销系统</button>
             <button class="btn" onclick="toast('已选择 0 条，请先勾选线索')">批量分单</button>
         </div>
     </div>
 
-    <div class="stat-grid g4">
+    <div class="stat-grid g5">
         <div class="stat-card accent-blue"><div class="stat-label">公海案件数</div><div class="stat-value">186</div><div class="stat-foot">等待认领或分单</div></div>
         <div class="stat-card accent-cyan"><div class="stat-label">营销系统来源</div><div class="stat-value" style="color:#0e7490;">142</div><div class="stat-foot">占公海 76.3%</div></div>
+        <div class="stat-card accent-purple"><div class="stat-label">催收系统来源</div><div class="stat-value" style="color:#6b46c1;">44</div><div class="stat-foot">分单未分配转入</div></div>
         <div class="stat-card"><div class="stat-label">今日新增</div><div class="stat-value">58</div><div class="stat-foot"><span class="up">↑ 12</span> 环比昨日</div></div>
         <div class="stat-card accent-red"><div class="stat-label">超24小时未分配</div><div class="stat-value" style="color:#c0392b;">23</div><div class="stat-foot">已触发超时提醒，建议立即分单</div></div>
     </div>
 
     <div class="filter-bar">
         <span class="filter-label">触达来源</span>
-        <select class="search-select"><option>全部来源</option><option>营销系统</option><option>AI外呼</option><option>短信回复</option><option>回调导入</option></select>
+        <select class="search-select"><option>全部来源</option><option>营销系统</option><option>催收系统</option><option>AI外呼</option><option>短信回复</option><option>回调导入</option></select>
         <input class="search-input" placeholder="订单号 / 用户姓名 / 手机号">
         <select class="search-select"><option>全部超时状态</option><option>已超时（>24h）</option><option>临近超时（12-24h）</option><option>正常（<12h）</option></select>
         <button class="btn btn-sm">重置</button>
@@ -1343,6 +1325,26 @@ tbody tr:last-child td { border-bottom: none; }
                     <th>操作</th>
                 </tr></thead>
                 <tbody>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td  class="link mono" onclick="openCaseDetail()">CS20260914412</td>
+                        <td class="cell-strong">秦**</td>
+                        <td class="text-muted">135****8802</td>
+                        <td>iPhone 15 128G</td>
+                        <td><span class="tag t-red">已逾期</span></td>
+                        <td>账单逾期</td>
+                        <td  class="cell-strong">¥1,980</td>
+                        <td><span class="tag t-orange">16 天</span></td>
+                        <td><span class="tag t-gray">待认领</span></td>
+                        <td><span class="tag t-red">M3+·D16</span></td>
+                        <td><span class="tag t-purple">催收系统</span></td>
+                        <td  class="text-muted">—</td>
+                        <td><span class="tag t-gray">未触达</span></td>
+                        <td  class="text-muted">分单未分配到坐席，转入公海待分单</td>
+                        <td  class="text-muted">—</td>
+                        <td><span class="tag t-orange">09-15 10:24 临近</span></td>
+                        <td><button class="btn-text" onclick="toast('已认领，案件归属到当前用户并移出公海')">认领</button><button class="btn-text" onclick="toast('打开单条分单弹窗')">分单</button><button class="btn-text" onclick="openCaseDetail()">详情</button></td>
+                    </tr>
                     <tr>
                         <td><input type="checkbox"></td>
                         <td  class="link mono" onclick="openCaseDetail()">CS20260914001</td>
@@ -1446,7 +1448,7 @@ tbody tr:last-child td { border-bottom: none; }
                 </tbody>
             </table>
         </div>
-        <div class="text-muted" style="margin-top:10px;">批量分单部分失败时展示失败明细；目标坐席满载时阻止分配或提示选择其他坐席；同步营销系统失败保留本地列表并提示稍后重试。</div>
+        <div class="text-muted" style="margin-top:10px;">批量分单部分失败时展示失败明细；目标坐席离线 / 不可接单时阻止分配或提示选择其他坐席；未分配案件统一沉淀在本页，来源标记为「催收系统」。</div>
     </div>
 </div>
 
@@ -1532,14 +1534,14 @@ tbody tr:last-child td { border-bottom: none; }
                     </tbody>
                 </table>
             </div>
-            <div class="text-muted" style="margin-top:10px;">条件组内为「并且」关系，条件组之间可配置「或者」关系；满载 / 离线 / 不可接单坐席自动跳过并写入分单日志。</div>
+            <div class="text-muted" style="margin-top:10px;">条件组内为「并且」关系，条件组之间可配置「或者」关系；坐席离线 / 不可接单时自动跳过并写入分单日志，未分配案件转入触达公海（来源标记为「催收系统」）。</div>
         </div>
     </div>
 
     <!-- 撤回机制 -->
     <div data-tabpane id="pane-withdraw" style="display:none;">
         <div class="callout blue">
-            <strong>撤回机制：</strong>由催收系统「分单配置」统一管理，独立于营销系统的定时 / 实时入催规则。满足撤回条件的案件自动收回池内或回收归属，重新进入分单引擎；执行结果写入入催日志，入催方式标记为「撤回」。
+            <strong>撤回机制：</strong>由催收系统「分单配置」统一管理，独立于营销系统的定时 / 实时入催规则。满足撤回条件的案件自动收回，按规则「回收后动作」重新分配或转入触达公海；执行结果写入入催日志，入催方式标记为「撤回」。
         </div>
         <div class="card">
             <div class="card-header">
@@ -1572,7 +1574,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td><span class="tag t-blue">固定回收</span></td>
                             <td>每月 1 日 02:00</td>
                             <td class="text-muted">全部池 · 全部订单类型 · 全部阶段</td>
-                            <td>回到原池重新分单</td>
+                            <td>重新分配</td>
                             <td><span class="tag t-green">启用</span></td>
                             <td><button class="btn-text" onclick="openWithdrawModal('固定回收')">编辑</button><button class="btn-text" onclick="toast('已复制为新规则（默认停用）')">复制</button><button class="btn-text" onclick="toast('已停用：固定回收-每月1日全量')">停用</button></td>
                         </tr>
@@ -1582,7 +1584,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td><span class="tag t-purple">归属回收</span></td>
                             <td>分单 7 日未跟进</td>
                             <td class="text-muted">催收池 · 全新/续租 · M2,M3+</td>
-                            <td>回到原池重新分单</td>
+                            <td>重新分配</td>
                             <td><span class="tag t-green">启用</span></td>
                             <td><button class="btn-text" onclick="openWithdrawModal('归属回收')">编辑</button><button class="btn-text" onclick="toast('已复制为新规则（默认停用）')">复制</button><button class="btn-text" onclick="toast('已停用：归属回收-7日未跟进')">停用</button></td>
                         </tr>
@@ -1592,7 +1594,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td><span class="tag t-purple">归属回收</span></td>
                             <td>分单 15 日未回款</td>
                             <td class="text-muted">催收池 · 不限制 · M3+</td>
-                            <td>进入指定池（高逾期池）</td>
+                            <td>进入触达公海</td>
                             <td><span class="tag t-green">启用</span></td>
                             <td><button class="btn-text" onclick="openWithdrawModal('归属回收')">编辑</button><button class="btn-text" onclick="toast('已复制为新规则（默认停用）')">复制</button><button class="btn-text" onclick="toast('已停用：归属回收-15日未回款')">停用</button></td>
                         </tr>
@@ -1602,7 +1604,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td><span class="tag t-blue">固定回收</span></td>
                             <td>每月 15 日 03:00</td>
                             <td class="text-muted">催收池 · 续租 · M3+</td>
-                            <td>回到原池重新分单</td>
+                            <td>重新分配</td>
                             <td><span class="tag t-gray">停用</span></td>
                             <td><button class="btn-text" onclick="openWithdrawModal('固定回收')">编辑</button><button class="btn-text" onclick="toast('已复制为新规则（默认停用）')">复制</button><button class="btn-text" onclick="toast('已启用：固定回收-每月15日M3+')">启用</button></td>
                         </tr>
@@ -1612,7 +1614,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td><span class="tag t-purple">归属回收</span></td>
                             <td>分单 3 日未跟进</td>
                             <td class="text-muted">提醒池 · 不限制 · 不限制</td>
-                            <td>保留归属仅提醒</td>
+                            <td>重新分配</td>
                             <td><span class="tag t-gray">停用</span></td>
                             <td><button class="btn-text" onclick="openWithdrawModal('归属回收')">编辑</button><button class="btn-text" onclick="toast('已复制为新规则（默认停用）')">复制</button><button class="btn-text" onclick="toast('已启用：归属回收-3日未跟进（试用）')">启用</button></td>
                         </tr>
@@ -1621,6 +1623,7 @@ tbody tr:last-child td { border-bottom: none; }
             </div>
             <div class="text-muted" style="padding:12px 20px 16px;font-size:12.5px;line-height:1.9;">
                 <strong>执行口径：</strong>每次调度按优先级升序逐条评估，命中第一条即执行并停止；未命中的规则不执行。<br>
+                <strong>回收后动作：</strong>只有两种归属 —— <strong>重新分配</strong>（案件回原池重新进入分单引擎）与<strong>进入触达公海</strong>（案件转入触达公海待认领）。<br>
                 <strong>固定回收</strong>按自然月固定日触发，与案件是否在跟进无关；<strong>归属回收</strong>按分单后「未跟进 / 未回款」的天数阈值触发。<br>
                 <strong>有效跟进</strong> = 外呼接通 / 催记录入 / 承诺登记 / 还款；已结案、已结清、承诺未到期的案件不触发撤回。<br>
                 <strong>扩展方式：</strong>本弹窗字段由 <code>SPEC['撤回规则']</code> 表驱动，后续新增字段在该表追加一项即可，渲染、必填校验与提示文案自动生效。
@@ -1705,7 +1708,7 @@ tbody tr:last-child td { border-bottom: none; }
             <div class="text-muted" style="padding:12px 20px 16px;font-size:12.5px;line-height:1.9;">
                 <strong>记录结构：</strong>一次规则调度 = 一条撤回任务（任务层），任务下挂本次被撤回的全部订单（明细层）；点击「查看明细」按订单维度展开。<br>
                 <strong>跳过</strong> = 命中规则但属于排除条件（已结案 / 已结清 / 承诺未到期），不回收归属；<strong>失败</strong> = 撤回时案件状态已变更或分单引擎异常，保留原归属并在任务中标记原因。<br>
-                <strong>归属回收</strong>任务在明细中记录原归属坐席，撤回成功后案件回到原池并重新进入分单引擎。
+                <strong>归属回收</strong>任务在明细中记录原归属坐席，撤回成功后按规则配置的回收后动作处理：<strong>重新分配</strong>（回原池重新进入分单引擎）或<strong>进入触达公海</strong>。
             </div>
         </div>
     </div>
@@ -1792,7 +1795,7 @@ tbody tr:last-child td { border-bottom: none; }
                             <td>待分配</td>
                             <td>王海涛</td>
                             <td><span class="tag t-orange">跳过</span></td>
-                            <td  class="text-muted">目标坐席满载（40/40）</td>
+                            <td  class="text-muted">目标坐席离线，自动跳过</td>
                         </tr>
                         <tr>
                             <td  class="mono">09-14 10:24:08</td>
@@ -1851,7 +1854,7 @@ tbody tr:last-child td { border-bottom: none; }
                     </tbody>
                 </table>
             </div>
-            <div class="text-muted" style="margin-top:10px;">无可用坐席时案件保持待分配并推送主管处理；指定坐席满载 / 离线 / 不可接单时自动跳过并写入日志；分配时案件状态变化则中止分配并提示刷新。</div>
+            <div class="text-muted" style="margin-top:10px;">未匹配到策略或目标坐席离线 / 不可接单时写入日志，案件转入触达公海（来源标记为「催收系统」）；分配时案件状态变化则中止分配并提示刷新。</div>
         </div>
     </div>
 </div>
@@ -2062,10 +2065,6 @@ tbody tr:last-child td { border-bottom: none; }
         <div>
             <div class="page-title">AI坐席工作台</div>
             <div class="page-subtitle">百应 Agent 任务下发与回执监控 · 催收系统仅下发任务与接收回执，不维护通道参数与 Agent 策略</div>
-        </div>
-        <div style="display:flex;gap:8px;">
-            <button class="btn" onclick="toast('导出当前筛选条件下的任务与回执明细')">导出任务</button>
-            <button class="btn btn-primary" onclick="toast('已重新拉取任务与回执最新状态')">刷新</button>
         </div>
     </div>
 
@@ -2414,7 +2413,7 @@ function openCaseDetail(){
         +   '<div class="info-item" style="margin-bottom:8px;"><div class="k">最近触达</div><div class="v">09-13 16:40 AI外呼</div></div>'
         +   '<div class="info-item" style="margin-bottom:8px;"><div class="k">承诺状态</div><div class="v"><span class="tag t-gold">承诺未到期</span></div></div>'
         +   '<div style="background:#fdf8e9;border-radius:7px;padding:9px 11px;font-size:11.5px;color:#7a5f11;line-height:1.65;margin-top:10px;">'
-        +     '客户承诺还款未到期（09-18），触达类按钮默认置灰或需主管确认。</div>'
+        +     '客户承诺还款未到期（09-18），触达类按钮默认置灰。</div>'
         + '</div>'
         + '</div></div>';
     openModal(html, '1180px');
@@ -2549,8 +2548,8 @@ var SPEC = {
  '提前天数':{type:'number',opts:[],dft:'3|1',req:true,cond:'适用池=提醒池',note:'0-30 天，按提醒类型顺序对应'},
  '命中条件（默认行）':{type:'cond-default',opts:['逾期类型=账单逾期','订单类型=全新','逾期阶段=M2'],dft:'',req:true,cond:'适用池=催收池',note:'可配字段：订单类型、逾期类型、逾期阶段、账期范围；组内为「并且」关系，组间可配「或者」'},
  '分配模式':{type:'select',opts:['等额分配','指定坐席'],dft:'等额分配',req:true,
-   hint:{'等额分配':'等额分配：命中案件在所选范围内坐席间平均分摊；满载 / 离线 / 不可接单坐席自动跳过。',
-         '指定坐席':'指定坐席：命中案件全部派给所选坐席；该坐席满载或离线时自动跳过并写入分单日志。'}},
+   hint:{'等额分配':'等额分配：命中案件在所选范围内坐席间平均分摊；离线 / 不可接单坐席自动跳过。',
+         '指定坐席':'指定坐席：命中案件全部派给所选坐席；该坐席离线或不可接单时自动跳过并写入分单日志。'}},
  '目标坐席':{type:'select',opts:['张明远','李静','王海涛','陈晓雯','赵敏','周凯'],dft:'',req:true,note:''},
  '优先级':{type:'number',opts:[],dft:'10',req:false,note:'数值越小优先级越高'},
  '状态':{type:'select',opts:['启用','停用'],dft:'启用',req:true,note:''},
@@ -2567,7 +2566,7 @@ var SPEC = {
  '适用订单类型':{type:'checkbox-group',opts:['全新','续租'],dft:'',req:false,note:'不勾选 = 不限制'},
  '适用逾期阶段':{type:'checkbox-group',opts:['M1','M2','M3+'],dft:'',req:false,note:'不勾选 = 不限制'},
  '排除条件':{type:'checkbox-group',opts:['已结案','已结清','承诺未到期'],dft:'已结案|已结清|承诺未到期',req:false,note:'默认全部勾选；命中但属于排除条件的案件不触发撤回'},
- '回收后动作':{type:'select',opts:['回到原池重新分单','进入指定池','保留归属仅提醒'],dft:'回到原池重新分单',req:true,note:'选择「进入指定池」时需同时指定目标池'},
+ '回收后动作':{type:'select',opts:['重新分配','进入触达公海'],dft:'重新分配',req:true,note:'只支持两种归属：重新分配 = 回原池重新进入分单引擎；进入触达公海 = 转入触达公海待认领'},
  '优先级':{type:'number',opts:[],dft:'10',req:true,note:'1-99，数字越小越优先；同一案件命中多条时只执行优先级最高的一条'},
  '状态':{type:'select',opts:['启用','停用'],dft:'停用',req:false,note:'新建默认停用，需人工确认后启用'},
  '底部按钮':{type:'buttons',opts:['取消','保存草稿','保存并启用'],dft:'',req:false,note:''}
@@ -2949,7 +2948,7 @@ function openWithdrawModal(type){
         +       '<div class="form-item"><label class="form-label">分单后未达<span class="req">*</span></label><input class="form-input" type="number" min="1" max="60" value="' + specD(M,'阈值天数') + '"><div class="form-hint">' + specF(M,'阈值天数').note + '</div></div>'
         +       '<div class="form-item"><label class="form-label">回收判定项<span class="req">*</span></label><select class="form-select">' + specSel(M,'回收判定项') + '</select><div class="form-hint">' + specF(M,'回收判定项').note + '</div></div>'
         +     '</div>'
-        +     '<div class="form-hint" style="margin-top:2px;">即：分单至坐席后 X 日未「跟进 / 回款」，回收归属并重新分配</div>'
+        +     '<div class="form-hint" style="margin-top:2px;">即：分单至坐席后 X 日未「跟进 / 回款」，回收归属并按「回收后动作」处理</div>'
         +   '</div>'
         +   '<div class="divider"></div>'
         +   '<div class="info-block-title">适用范围</div>'
@@ -3072,7 +3071,7 @@ var AGDATA = {
 function agTag(v){
     var m = {'已逾期':'t-red','租赁中':'t-blue','已结清':'t-green','已结案':'t-gray',
              '已承诺':'t-green','跟进中':'t-blue','协商中':'t-orange','待跟进':'t-gray','失联':'t-red',
-             '已回款':'t-green','部分回款':'t-orange','未回款':'t-red','承诺待履约':'t-gold','已回池待分单':'t-blue'};
+             '已回款':'t-green','部分回款':'t-orange','未回款':'t-red','承诺待履约':'t-gold','已回池重新分配':'t-blue'};
     return '<span class="tag ' + (m[v] || 't-gray') + '">' + v + '</span>';
 }
 function agDays(n){
@@ -3147,34 +3146,34 @@ function openAgentDetail(name){
 var WDLOG = {
 'WD20260914001':{rule:'固定回收-每月1日全量',type:'固定回收',trigger:'定时调度 · 每月 1 日 02:00',time:'2026-09-14 02:00:00',scan:'1,024',hit:'386',ok:'380',skip:'6',fail:'0',dur:'42.6s',result:'成功',operator:'系统调度',
  rows:[
- ['02:00:05','CS20260910218','刘**','133****7788','索尼 A7M4 相机','已逾期','账单逾期','¥11,240',73,'待跟进','催收池','每月 1 日固定回收','—','已回池待分单'],
- ['02:00:07','CS20260909351','钱**','187****9931','MacBook Pro 14','已逾期','账单逾期','¥5,240',27,'待跟进','催收池','每月 1 日固定回收','—','已回池待分单'],
- ['02:00:11','CS20260908774','蔣**','133****6612','iPhone 16 Pro','已逾期','账单逾期','¥1,200',6,'已承诺','提醒池','每月 1 日固定回收','—','已回池待分单'],
- ['02:00:14','CS20260907512','沈**','135****9987','AirPods Pro 2','已逾期','账单逾期','¥680',41,'待跟进','提醒池','每月 1 日固定回收','—','已回池待分单']
+ ['02:00:05','CS20260910218','刘**','133****7788','索尼 A7M4 相机','已逾期','账单逾期','¥11,240',73,'待跟进','催收池','每月 1 日固定回收','—','已回池重新分配'],
+ ['02:00:07','CS20260909351','钱**','187****9931','MacBook Pro 14','已逾期','账单逾期','¥5,240',27,'待跟进','催收池','每月 1 日固定回收','—','已回池重新分配'],
+ ['02:00:11','CS20260908774','蔣**','133****6612','iPhone 16 Pro','已逾期','账单逾期','¥1,200',6,'已承诺','提醒池','每月 1 日固定回收','—','已回池重新分配'],
+ ['02:00:14','CS20260907512','沈**','135****9987','AirPods Pro 2','已逾期','账单逾期','¥680',41,'待跟进','提醒池','每月 1 日固定回收','—','已回池重新分配']
  ]},
 'WD20260913201':{rule:'归属回收-3日未跟进',type:'归属回收',trigger:'定时调度 · 每日 02:00',time:'2026-09-13 02:00:00',scan:'862',hit:'214',ok:'208',skip:'6',fail:'0',dur:'31.2s',result:'成功',operator:'系统调度',
  rows:[
- ['02:00:09','CS20260911302','赵**','137****5540','华为 Mate 60','已逾期','归还逾期','¥980',11,'待跟进','催收池','分单 3 日未跟进','陈晓雯','已回池待分单'],
- ['02:00:12','CS20260910145','孙**','186****2210','iPad Pro 11','已逾期','账单逾期','¥2,600',42,'待跟进','催收池','分单 3 日未跟进','陈晓雯','已回池待分单'],
- ['02:00:16','CS20260909388','周**','135****8890','iPhone 16 Pro','已逾期','账单逾期','¥6,480',26,'待跟进','催收池','分单 3 日未跟进','李静','已回池待分单']
+ ['02:00:09','CS20260911302','赵**','137****5540','华为 Mate 60','已逾期','归还逾期','¥980',11,'待跟进','催收池','分单 3 日未跟进','陈晓雯','已回池重新分配'],
+ ['02:00:12','CS20260910145','孙**','186****2210','iPad Pro 11','已逾期','账单逾期','¥2,600',42,'待跟进','催收池','分单 3 日未跟进','陈晓雯','已回池重新分配'],
+ ['02:00:16','CS20260909388','周**','135****8890','iPhone 16 Pro','已逾期','账单逾期','¥6,480',26,'待跟进','催收池','分单 3 日未跟进','李静','已回池重新分配']
  ]},
-'WD20260912201':{rule:'归属回收-7日未回款',type:'归属回收',trigger:'定时调度 · 每日 02:00',time:'2026-09-12 02:00:00',scan:'798',hit:'176',ok:'168',skip:'8',fail:'0',dur:'28.9s',result:'成功',operator:'系统调度',
+'WD20260912201':{rule:'归属回收-15日未回款',type:'归属回收',trigger:'定时调度 · 每日 02:00',time:'2026-09-12 02:00:00',scan:'798',hit:'176',ok:'168',skip:'8',fail:'0',dur:'28.9s',result:'成功',operator:'系统调度',
  rows:[
- ['02:00:08','CS20260910452','吴**','139****4412','索尼 A7M4 相机','已逾期','账单逾期','¥11,240',73,'已承诺','催收池','分单 7 日未回款','陈晓雯','已回池待分单'],
- ['02:00:13','CS20260908411','杨**','188****6678','索尼 A7M4 相机','已逾期','账单逾期','¥9,860',56,'失联','催收池','分单 7 日未回款','刘志强','已回池待分单'],
- ['02:00:19','CS20260907321','陈**','137****7756','iPad Air 5','已逾期','账单逾期','¥2,240',48,'待跟进','催收池','分单 7 日未回款','王海涛','已回池待分单']
+ ['02:00:08','CS20260910452','吴**','139****4412','索尼 A7M4 相机','已逾期','账单逾期','¥11,240',73,'已承诺','催收池','分单 15 日未回款','陈晓雯','已转入触达公海'],
+ ['02:00:13','CS20260908411','杨**','188****6678','索尼 A7M4 相机','已逾期','账单逾期','¥9,860',56,'失联','催收池','分单 15 日未回款','刘志强','已转入触达公海'],
+ ['02:00:19','CS20260907321','陈**','137****7756','iPad Air 5','已逾期','账单逾期','¥2,240',48,'待跟进','催收池','分单 15 日未回款','王海涛','已转入触达公海']
  ]},
 'WD20260911002':{rule:'归属回收-3日未跟进',type:'归属回收',trigger:'手动执行 · 张明远',time:'2026-09-11 10:15:00',scan:'640',hit:'152',ok:'149',skip:'3',fail:'0',dur:'24.1s',result:'成功',operator:'张明远',
  rows:[
- ['10:15:04','CS20260911090','冯**','188****3391','戴森吹风机','已逾期','账单逾期','¥1,860',22,'待跟进','催收池','分单 3 日未跟进','陈晓雯','已回池待分单'],
- ['10:15:07','CS20260911155','韩**','139****2244','MacBook Air M3','已逾期','账单逾期','¥5,240',27,'待跟进','催收池','分单 3 日未跟进','陈晓雯','已回池待分单'],
- ['10:15:11','CS20260906018','楚**','159****1102','华为 Mate 60','已逾期','账单逾期','¥1,500',30,'待跟进','催收池','分单 3 日未跟进','陈晓雯','已回池待分单']
+ ['10:15:04','CS20260911090','冯**','188****3391','戴森吹风机','已逾期','账单逾期','¥1,860',22,'待跟进','催收池','分单 3 日未跟进','陈晓雯','已回池重新分配'],
+ ['10:15:07','CS20260911155','韩**','139****2244','MacBook Air M3','已逾期','账单逾期','¥5,240',27,'待跟进','催收池','分单 3 日未跟进','陈晓雯','已回池重新分配'],
+ ['10:15:11','CS20260906018','楚**','159****1102','华为 Mate 60','已逾期','账单逾期','¥1,500',30,'待跟进','催收池','分单 3 日未跟进','陈晓雯','已回池重新分配']
  ]},
 'WD20260901001':{rule:'固定回收-每月1日全量',type:'固定回收',trigger:'定时调度 · 每月 1 日 02:00',time:'2026-09-01 02:00:00',scan:'1,180',hit:'442',ok:'381',skip:'58',fail:'3',dur:'55.4s',result:'部分成功',operator:'系统调度',
  rows:[
- ['02:00:06','CS20260825401','秦**','186****3320','MacBook Pro 14','已逾期','账单逾期','¥8,640',66,'待跟进','催收池','每月 1 日固定回收','—','已回池待分单'],
- ['02:00:10','CS20260822310','许**','137****4418','iPad Pro 11','已逾期','账单逾期','¥3,420',54,'待跟进','催收池','每月 1 日固定回收','—','已回池待分单'],
- ['02:00:15','CS20260819188','何**','159****7761','iPhone 16 Pro','已逾期','账单逾期','¥1,880',38,'已承诺','提醒池','每月 1 日固定回收','—','已回池待分单'],
+ ['02:00:06','CS20260825401','秦**','186****3320','MacBook Pro 14','已逾期','账单逾期','¥8,640',66,'待跟进','催收池','每月 1 日固定回收','—','已回池重新分配'],
+ ['02:00:10','CS20260822310','许**','137****4418','iPad Pro 11','已逾期','账单逾期','¥3,420',54,'待跟进','催收池','每月 1 日固定回收','—','已回池重新分配'],
+ ['02:00:15','CS20260819188','何**','159****7761','iPhone 16 Pro','已逾期','账单逾期','¥1,880',38,'已承诺','提醒池','每月 1 日固定回收','—','已回池重新分配'],
  ['02:00:21','CS20260815066','吕**','133****2209','华为 Mate 60','已结案','账单逾期','¥1,240',45,'已承诺','催收池','每月 1 日固定回收','—','回收失败·案件已结案']
  ]}
 };
@@ -3204,7 +3203,7 @@ function openWithdrawLogDetail(id){
         +   '<div class="stat-grid g5">'
         +     '<div class="stat-card"><div class="stat-label">扫描案件</div><div class="stat-value">' + d.scan + '</div><div class="stat-foot">符合规则适用范围</div></div>'
         +     '<div class="stat-card accent-blue"><div class="stat-label">命中</div><div class="stat-value">' + d.hit + '</div><div class="stat-foot">满足撤回触发条件</div></div>'
-        +     '<div class="stat-card accent-green"><div class="stat-label">撤回成功</div><div class="stat-value">' + d.ok + '</div><div class="stat-foot">已回池 / 已回收归属</div></div>'
+        +     '<div class="stat-card accent-green"><div class="stat-label">撤回成功</div><div class="stat-value">' + d.ok + '</div><div class="stat-foot">重新分配 / 转入公海</div></div>'
         +     '<div class="stat-card"><div class="stat-label">跳过</div><div class="stat-value">' + d.skip + '</div><div class="stat-foot">命中排除条件</div></div>'
         +     '<div class="stat-card accent-red"><div class="stat-label">失败</div><div class="stat-value" style="color:' + (d.fail === '0' ? '#152238' : '#c0392b') + ';">' + d.fail + '</div><div class="stat-foot">状态变更 / 引擎异常</div></div>'
         +   '</div>'
@@ -3212,11 +3211,12 @@ function openWithdrawLogDetail(id){
         +   '<div class="table-wrap"><table style="min-width:1240px;">'
         +     '<thead><tr><th>撤回时间</th><th>订单号</th><th>用户姓名</th><th>手机号</th><th>下单商品</th><th>订单状态</th><th>逾期类型</th><th>逾期金额</th><th>逾期天数</th><th>跟进状态</th><th>所属池</th><th>撤回原因</th><th>原归属</th><th>撤回后状态</th></tr></thead>'
         +     '<tbody>' + rh + '</tbody></table></div>'
-        +   '<div class="text-muted" style="margin-top:10px;font-size:12.5px;line-height:1.9;">撤回后案件回到原池并重新进入分单引擎；失败案件保留原归属，不重新分配，需在任务中标注原因后重试。</div>'
+        +   '<div class="text-muted" style="margin-top:10px;font-size:12.5px;line-height:1.9;">撤回后按规则的「回收后动作」处理：重新分配（回原池重新进入分单引擎）或进入触达公海；失败案件保留原归属，需在任务中标注原因后重试。</div>'
         + '</div>'
         + '<div class="modal-footer"><button class="btn" onclick="closeModal()">关闭</button><button class="btn" onclick="toast(\'\u5df2\u91cd\u8bd5\u8be5\u4efb\u52a1\u4e2d\u5931\u8d25\u7684 \' + d.fail + \' \u6761\u6848\u4ef6\')">重试失败案件</button><button class="btn btn-primary" onclick="toast(\'\u5df2\u5bfc\u51fa\u8be5\u4efb\u52a1\u8ba2\u5355\u660e\u7ec6\')">导出明细</button></div>';
     openModal(html, '1280px');
 }
 </script>
+
 </body>
 </html>
